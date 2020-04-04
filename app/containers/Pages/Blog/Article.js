@@ -6,7 +6,6 @@ import classNames from 'classnames';
 import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
-import postContent from 'dan-api/dummy/blog-post.md';
 import { Comments, ShowcaseCard } from 'dan-components';
 import AllInclusive from '@material-ui/icons/AllInclusive';
 import Brightness5 from '@material-ui/icons/Brightness5';
@@ -20,7 +19,7 @@ import request from '../../../utils/request';
 
 class Article extends React.Component {
   state = {
-    content: '',
+    articleDto: {},
   }
 
   componentDidMount() {
@@ -28,16 +27,20 @@ class Article extends React.Component {
   }
 
   query = async () => {
-    // const res = await request('http://localhost:3000/blog/article/123');
-    const res = await request.get('/blog/article/5e85b6591af1b7a89f069ee6');
-    this.setState({
-      content: res?.data?.editContent,
-    });
+    console.log('prop', this.props);
+    const id = this.props?.match?.params?.id;
+    const res = await request.get(`/blog/article/${id}`);
+    if (res.success && res.data) {
+      this.setState({
+        articleDto: res?.data,
+      });
+    }
   }
 
   render() {
     const { classes } = this.props;
-    const { content } = this.state;
+    const { articleDto } = this.state;
+    const { editContent, title, headPic } = articleDto;
     return (
       <Fragment>
         <div className={classes.root}>
@@ -45,12 +48,12 @@ class Article extends React.Component {
             <Grid item md={12} xs={12}>
               <article className={classes.article}>
                 <div className={classes.content}>
+                  <img className={classes.headPic} src={headPic} alt="headPic" />
                   <Typography variant="h4" gutterBottom>
-                    {/* From the Firehouse */}
+                    {title}
                   </Typography>
                   <Markdown>
-                    {/* {postContent} */}
-                    {content}
+                    {editContent}
                   </Markdown>
                   {/* <Divider className={classes.dividerBordered} /> */}
                 </div>

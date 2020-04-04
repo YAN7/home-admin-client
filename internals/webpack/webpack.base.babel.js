@@ -186,6 +186,7 @@ module.exports = options => ({
       'dan-actions': path.resolve(__dirname, '../../app/actions/'),
       'dan-styles': path.resolve(__dirname, '../../app/styles/components/'),
       'dan-api': path.resolve(__dirname, '../../app/api/'),
+      'dan-utils': path.resolve(__dirname, '../../app/utils/'),
       'dan-images': path.resolve(__dirname, '../../public/images/'),
       'dan-vendor': path.resolve(__dirname, '../../node_modules/'),
     }

@@ -11,7 +11,7 @@ class ArticleNews extends React.Component {
       <Blog history={history} changeMode={changeMode}>
         <Switch>
           <Route exact path="/" component={BlogHome} />
-          <Route path="/article" component={Article} />
+          <Route path="/article/:id" component={Article} />
         </Switch>
       </Blog>
     );

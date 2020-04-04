@@ -50,6 +50,11 @@ const styles = theme => ({
     fontWeight: 600,
     marginTop: theme.spacing(3)
   },
+  headPic: {
+    width: '1050px',
+    height: '750px',
+    marginBottom: '30px',
+  },
   content: {
     padding: `0 ${theme.spacing(4)}`
   },
