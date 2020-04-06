@@ -82,7 +82,7 @@ class Blog extends React.Component {
           openMobileNav={sidebarOpen}
           loadTransition={loadTransition}
           isLogin={false}
-          logoLink="/blog"
+          logoLink="/"
         />
         <div className={classes.blogWrap}>
           {children}

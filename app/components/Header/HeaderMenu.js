@@ -18,11 +18,9 @@ import MenuIcon from '@material-ui/icons/Menu';
 import SidebarContent from '../Sidebar/SidebarContent';
 import DropListMenu from './DropListMenu';
 import MegaMenu from './MegaMenu';
-import UserMenu from './UserMenu';
+import HeaderAction from './HeaderAction';
 import styles from './header-jss';
 import SearchUi from '../Search/SearchUi';
-
-const elem = document.documentElement;
 
 class HeaderMenu extends React.Component {
   state = {
@@ -53,41 +51,6 @@ class HeaderMenu extends React.Component {
     }
   }
 
-  openFullScreen = () => {
-    this.setState({ fullScreen: true });
-    if (elem.requestFullscreen) {
-      elem.requestFullscreen();
-    } else if (elem.mozRequestFullScreen) { /* Firefox */
-      elem.mozRequestFullScreen();
-    } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
-      elem.webkitRequestFullscreen();
-    } else if (elem.msRequestFullscreen) { /* IE/Edge */
-      elem.msRequestFullscreen();
-    }
-  };
-
-  closeFullScreen = () => {
-    this.setState({ fullScreen: false });
-    if (document.exitFullscreen) {
-      document.exitFullscreen();
-    } else if (document.mozCancelFullScreen) {
-      document.mozCancelFullScreen();
-    } else if (document.webkitExitFullscreen) {
-      document.webkitExitFullscreen();
-    } else if (document.msExitFullscreen) {
-      document.msExitFullscreen();
-    }
-  };
-
-  turnMode = mode => {
-    const { changeMode } = this.props;
-    if (mode === 'light') {
-      changeMode('dark');
-    } else {
-      changeMode('light');
-    }
-  };
-
   handleOpen = event => {
     this.setState({ anchorEl: event.currentTarget });
   };
@@ -107,13 +70,13 @@ class HeaderMenu extends React.Component {
       type,
       dataMenu,
       history,
-      openGuide,
       mode,
       toggleDrawerOpen,
       openMobileNav,
       loadTransition,
       isLogin,
-      logoLink
+      logoLink,
+      changeMode
     } = this.props;
     const {
       fullScreen,
@@ -142,33 +105,7 @@ class HeaderMenu extends React.Component {
             </IconButton>
           </Hidden>
           <Hidden smDown>
-            <div className={classes.headerProperties}>
-              <div className={classNames(classes.headerAction, classes.invert)}>
-                {fullScreen ? (
-                  <Tooltip title="Exit Full Screen" placement="bottom">
-                    <IconButton className={classes.button} onClick={this.closeFullScreen}>
-                      <Ionicon icon="ios-qr-scanner" />
-                    </IconButton>
-                  </Tooltip>
-                ) : (
-                  <Tooltip title="Full Screen" placement="bottom">
-                    <IconButton className={classes.button} onClick={this.openFullScreen}>
-                      <Ionicon icon="ios-qr-scanner" />
-                    </IconButton>
-                  </Tooltip>
-                )}
-                <Tooltip title="Turn Dark/Light" placement="bottom">
-                  <IconButton className={classes.button} onClick={() => this.turnMode(mode)}>
-                    <Ionicon icon="ios-bulb-outline" />
-                  </IconButton>
-                </Tooltip>
-                <Tooltip title="Show Guide" placement="bottom">
-                  <IconButton className={classes.button} onClick={openGuide}>
-                    <Ionicon icon="ios-help-circle-outline" />
-                  </IconButton>
-                </Tooltip>
-              </div>
-            </div>
+            <HeaderAction fixed={fixed} changeMode={changeMode} mode={mode} />
             <NavLink to={logoLink} className={classes.brand}>
               <img src={logo} alt={brand.name} />
               {brand.name}
@@ -182,9 +119,7 @@ class HeaderMenu extends React.Component {
               <SearchUi history={history} />
             </div>
           </div>
-          <Toolbar>
-            <UserMenu dark />
-          </Toolbar>
+          <Toolbar />
         </div>
         <Hidden mdDown>
           <Fragment>

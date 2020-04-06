@@ -45,7 +45,7 @@ class SidebarBlog extends React.Component {
     return (
       <div>
         {/* Subscribe */}
-        <PapperBlock title="Subscribe" icon="ios-wifi-outline" colorMode whiteBg noMargin desc="Get lates update from us">
+        {/* <PapperBlock title="Subscribe" icon="ios-wifi-outline" colorMode whiteBg noMargin desc="Get lates update from us">
           <div className={classes.subscribeForm}>
             <FormControl>
               <TextField
@@ -65,7 +65,7 @@ class SidebarBlog extends React.Component {
               <Send />
             </Fab>
           </div>
-        </PapperBlock>
+        </PapperBlock> */}
         {/* ----------------------------------------------------------------------*/}
         <Divider className={classes.divider} />
         {/* About */}
@@ -105,69 +105,6 @@ class SidebarBlog extends React.Component {
         </PapperBlock>
         {/* ----------------------------------------------------------------------*/}
         <Divider className={classes.divider} />
-        {/* latest Posts */}
-        <PapperBlock title="latest Posts" icon="ios-bookmark-outline" whiteBg desc="">
-          <div className={classes.albumRoot}>
-            <List>
-              <ListItem button>
-                <ListItemText primary="Curabitur egestas consequat " secondary="Jan 9, 2014" />
-              </ListItem>
-              <ListItem button>
-                <ListItemText primary="Interdum et malesuada fames" secondary="Jan 7, 2014" />
-              </ListItem>
-              <ListItem button>
-                <ListItemText primary="Pellentesque ullamcorper" secondary="July 20, 2014" />
-              </ListItem>
-              <ListItem button>
-                <ListItemText primary="Quisque a consequat ante" secondary="July 20, 2014" />
-              </ListItem>
-              <ListItem button>
-                <ListItemText primary="Donec dignissim odio ac" secondary="July 20, 2014" />
-              </ListItem>
-              <ListItem button>
-                <ListItemText primary="Curabitur egestas consequat " secondary="Jan 9, 2014" />
-              </ListItem>
-              <ListItem button>
-                <ListItemText primary="Interdum et malesuada fames" secondary="Jan 7, 2014" />
-              </ListItem>
-              <ListItem button>
-                <ListItemText primary="Pellentesque ullamcorper" secondary="July 20, 2014" />
-              </ListItem>
-              <ListItem button>
-                <ListItemText primary="Quisque a consequat ante" secondary="July 20, 2014" />
-              </ListItem>
-              <ListItem button>
-                <ListItemText primary="Donec dignissim odio ac" secondary="July 20, 2014" />
-              </ListItem>
-            </List>
-          </div>
-        </PapperBlock>
-        {/* latest comment */}
-        <PapperBlock title="Latest Comment" icon="ios-text-outline" whiteBg desc="">
-          <List dense className={classes.profileList}>
-            <ListItem button>
-              <Avatar className={classNames(classes.avatar, classes.orangeAvatar)}>H</Avatar>
-              <ListItemText primary="Harry Wells" secondary="in Vestibulum bibendum" />
-            </ListItem>
-            <ListItem button>
-              <Avatar className={classNames(classes.avatar, classes.purpleAvatar)}>J</Avatar>
-              <ListItemText primary="John DOe" secondary="in Quisque ut metus" />
-            </ListItem>
-            <ListItem button>
-              <Avatar className={classNames(classes.avatar, classes.pinkAvatar)}>V</Avatar>
-              <ListItemText primary="Victor Wanggai" secondary="in Vestibulum bibendum" />
-            </ListItem>
-            <ListItem button>
-              <Avatar className={classNames(classes.avatar, classes.greenAvatar)}>H</Avatar>
-              <ListItemText primary="Baron Phoenix" secondary="Aenean sit amet magna" />
-            </ListItem>
-            <ListItem button>
-              <Avatar className={classNames(classes.avatar, classes.greenAvatar)}>H</Avatar>
-              <ListItemText primary="Baron Phoenix" secondary="Aenean sit amet magna" />
-            </ListItem>
-          </List>
-        </PapperBlock>
-        {/* ----------------------------------------------------------------------*/}
         {/* Archived */}
         <PapperBlock title="Archived" icon="ios-folder-open-outline" whiteBg desc="">
           <div className={classes.albumRoot}>

@@ -1,7 +1,6 @@
 const padZero = str => str.toString().padStart(2, 0);
 
 const format = (date, withHour = false) => {
-	console.log('date', date);
 	const dateToString = new Date(date);
 	const Year = dateToString.getFullYear();
 	const Month = dateToString.getMonth() + 1;

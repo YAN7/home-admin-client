@@ -84,7 +84,7 @@ class Article extends React.Component {
                 </Typography>
                 <Comments dataList={commentData} />
               </section>
-              <Typography variant="h6" className={classes.title2} gutterBottom>Related Posts</Typography>
+              {/* <Typography variant="h6" className={classes.title2} gutterBottom>Related Posts</Typography>
               <Grid container spacing={3}>
                 <Grid item sm={4} xs={12}>
                   <ShowcaseCard
@@ -113,7 +113,7 @@ class Article extends React.Component {
                     image={img[45]}
                   />
                 </Grid>
-              </Grid>
+              </Grid> */}
             </Grid>
             {/* <Grid item md={4} xs={12}>
               <SidebarBlog />

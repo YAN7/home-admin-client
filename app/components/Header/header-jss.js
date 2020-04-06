@@ -430,7 +430,15 @@ const styles = theme => ({
     display: 'flex',
     flex: 1,
     alignItems: 'center',
-    zIndex: 1
+    zIndex: 1,
+    top: 0,
+    transition: 'all 0.2s',
+  },
+  headerPropertiesFixed: {
+    top: 65,
+    maxWidth: 200,
+    // position: 'absolute',
+    // flex: 'initial',
   },
   fadeOut: {},
   invert: {},
@@ -479,6 +487,15 @@ const styles = theme => ({
     flexDirection: 'row-reverse',
     display: 'flex',
     alignItems: 'center'
+  },
+  turnMode: {
+    position: 'absolute',
+    left: 76,
+    top: 5,
+    '& svg': {
+      width: 28,
+      height: 28
+    }
   }
 });
 
