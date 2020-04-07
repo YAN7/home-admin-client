@@ -6,7 +6,7 @@ import classNames from 'classnames';
 import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
-import { Comments, ShowcaseCard } from 'dan-components';
+import { Comments } from 'dan-components';
 import AllInclusive from '@material-ui/icons/AllInclusive';
 import Brightness5 from '@material-ui/icons/Brightness5';
 import People from '@material-ui/icons/People';

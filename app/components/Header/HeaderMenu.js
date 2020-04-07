@@ -6,8 +6,6 @@ import { NavLink } from 'react-router-dom';
 import Toolbar from '@material-ui/core/Toolbar';
 import SearchIcon from '@material-ui/icons/Search';
 import classNames from 'classnames';
-import Tooltip from '@material-ui/core/Tooltip';
-import Ionicon from 'react-ionicons';
 import IconButton from '@material-ui/core/IconButton';
 import logo from 'dan-images/logo.svg';
 import brand from 'dan-api/dummy/brand';
@@ -24,7 +22,6 @@ import SearchUi from '../Search/SearchUi';
 
 class HeaderMenu extends React.Component {
   state = {
-    fullScreen: false,
     status: dummy.user.status,
     anchorEl: null,
     fixed: false,
@@ -79,7 +76,6 @@ class HeaderMenu extends React.Component {
       changeMode
     } = this.props;
     const {
-      fullScreen,
       status,
       anchorEl,
       fixed
@@ -162,7 +158,6 @@ HeaderMenu.propTypes = {
   openMobileNav: PropTypes.bool.isRequired,
   mode: PropTypes.string.isRequired,
   changeMode: PropTypes.func.isRequired,
-  openGuide: PropTypes.func.isRequired,
   toggleDrawerOpen: PropTypes.func.isRequired,
   loadTransition: PropTypes.func.isRequired,
   history: PropTypes.object.isRequired,

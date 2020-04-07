@@ -81,7 +81,7 @@ export SideReview from './Forms/SideReview';
 export HeadlinesButton from './TextEditor/HeadlinesButton';
 // UI
 export LimitedBadges from './Badges/LimitedBadges';
-export Quote from './Quote/Quote';
+export Quote from './Quote';
 export Pagination from './Pagination/Pagination';
 export ImageLightbox from './ImageLightbox/ImageLightbox';
 export Rating from './Rating/Rating';

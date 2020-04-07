@@ -8,7 +8,7 @@ import imgApi from 'dan-api/images/photos';
 import avatarApi from 'dan-api/images/avatars';
 import GeneralCard from '../CardPaper/GeneralCard';
 import PostCard from '../CardPaper/PostCard';
-import Quote from '../Quote/Quote';
+import Quote from '../Quote';
 
 const styles = theme => ({
   divider: {

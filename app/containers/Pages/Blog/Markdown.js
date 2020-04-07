@@ -1,39 +1,16 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import ReactMarkdown from 'react-markdown';
-import { withStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
-import CodeBlock from './CodeBlock';
+import Quote from 'dan-components/Quote';
 import CodeReader from './CodeReader';
-
-const styles = theme => ({
-  listItem: {
-    marginTop: theme.spacing(1),
-  },
-});
-
-function ListItem(props) {
-  const { classes, children } = props;
-  return (
-    <li className={classes.listItem}>
-      {children}
-    </li>
-  );
-}
-
-ListItem.propTypes = {
-  classes: PropTypes.object.isRequired,
-  children: PropTypes.node.isRequired,
-};
-
-const ListItemStyled = withStyles(styles)(ListItem);
+import { InlineCodeStyled, LinkStyled, ListItemStyled, Heading } from './MarkdownRenderers';
 
 const renderers = {
   /* eslint-disable-next-line react/prop-types */
   heading: ({ level, ...props }) => {
     let variant;
     let paragraph;
-
+    console.log('level', level, props);
     switch (level) {
       case 1:
         variant = 'h4';
@@ -42,10 +19,10 @@ const renderers = {
         variant = 'subtitle1';
         break;
       case 3:
-        variant = 'h6';
+        variant = 'h5';
         break;
       case 4:
-        variant = 'caption';
+        variant = 'h6';
         paragraph = true;
         break;
       default:
@@ -66,6 +43,9 @@ const renderers = {
   ),
   paragraph: props => <Typography {...props} paragraph />,
   code: CodeReader,
+  inlineCode: InlineCodeStyled,
+  blockquote: Quote,
+  link: LinkStyled,
 };
 
 export default function Markdown(props) {

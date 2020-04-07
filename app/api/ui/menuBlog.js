@@ -3,9 +3,8 @@ module.exports = [
     key: 'home',
     name: 'Home',
     icon: 'ios-home-outline',
-    // single: true,
+    single: true,
     link: '/#',
-    child: [],
   },
   {
     key: 'designs',

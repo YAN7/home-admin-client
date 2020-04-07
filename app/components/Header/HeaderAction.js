@@ -52,7 +52,6 @@ class HeaderAction extends React.PureComponent {
   render() {
     const { classes, mode, fixed } = this.props;
     const { fullScreen } = this.state;
-    console.log('fixed', fixed);
     return (
       <div className={classNames(classes.headerProperties, { [classes.headerPropertiesFixed]: fixed })}>
         <div className={classNames(classes.headerAction, classes.invert)}>

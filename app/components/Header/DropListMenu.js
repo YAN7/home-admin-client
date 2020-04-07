@@ -67,19 +67,8 @@ class MainMenu extends React.Component {
     });
   }
 
-  turnMode = mode => {
-    const { changeMode } = this.props;
-    if (mode === 'light') {
-      changeMode('dark');
-    } else {
-      changeMode('light');
-    }
-  };
-
   render() {
-    const {
-      classes, open, dataMenu, fixed, mode, fullScreen,
-    } = this.props;
+    const { classes, open, dataMenu } = this.props;
     const { active, openMenu, anchorEl } = this.state;
     const getMenus = (parent, menuArray) => menuArray.map((item, index) => {
       if (item.multilevel) {
@@ -96,8 +85,12 @@ class MainMenu extends React.Component {
               className={
                 classNames(
                   classes.headMenu,
-                  open.indexOf(item.key) > -1 ? classes.opened : '',
-                  active.indexOf(item.key) > -1 ? classes.selected : ''
+                  {
+                    [classes.opened]: open.includes(item.key),
+                    [classes.selected]: open.includes(item.key),
+                  }
+                  // open.indexOf(item.key) > -1 ? classes.opened : '',
+                  // active.indexOf(item.key) > -1 ? classes.selected : ''
                 )
               }
               onClick={(event) => this.handleOpenMenu(event, item.key, item.keyParent)}
@@ -138,6 +131,7 @@ class MainMenu extends React.Component {
       if (item.single) {
         return (
           <Button
+            key={index.toString()}
             aria-owns={open ? 'menu-list-grow' : undefined}
             buttonRef={node => {
               this.anchorEl = node;
@@ -145,8 +139,12 @@ class MainMenu extends React.Component {
             className={
               classNames(
                 classes.headMenu,
-                open.indexOf(item.key) > -1 ? classes.opened : '',
-                active.indexOf(item.key) > -1 ? classes.selected : ''
+                {
+                  [classes.opened]: open.includes(item.key),
+                  // [classes.selected]: open.includes(item.key),
+                }
+                // open.indexOf(item.key) > -1 ? classes.opened : '',
+                // active.indexOf(item.key) > -1 ? classes.selected : ''
               )
             }
             onClick={(event) => this.handleOpenMenu(event, item.key, item.keyParent)}
@@ -185,10 +183,6 @@ MainMenu.propTypes = {
   open: PropTypes.object.isRequired,
   openSubMenu: PropTypes.func.isRequired,
   dataMenu: PropTypes.array.isRequired,
-  fixed: PropTypes.bool.isRequired,
-  mode: PropTypes.string.isRequired,
-  changeMode: PropTypes.array.isRequired,
-  fullScreen: PropTypes.bool.isRequired,
 };
 
 const openAction = (key, keyParent) => ({ type: 'OPEN_SUBMENU', key, keyParent });

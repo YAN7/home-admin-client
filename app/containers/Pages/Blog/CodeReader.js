@@ -4,6 +4,8 @@ import { withStyles } from '@material-ui/core/styles';
 import { connect } from 'react-redux';
 import { PrismLight as SyntaxHighlighter } from 'react-syntax-highlighter';
 import jsx from 'react-syntax-highlighter/dist/esm/languages/prism/jsx';
+import html from 'react-syntax-highlighter/dist/esm/languages/prism/http';
+import css from 'react-syntax-highlighter/dist/esm/languages/prism/css';
 import lightStyle from 'react-syntax-highlighter/dist/esm/styles/prism/solarizedlight';
 import darkStyle from 'react-syntax-highlighter/dist/esm/styles/prism/xonokai';
 import Button from '@material-ui/core/Button';
@@ -40,7 +42,7 @@ const styles = theme => ({
 			fontFamily: 'Menlo, Monaco, monospace !important',
 		},
 		'& code': {
-			tabSize: '0 !important',
+			tabSize: '2 !important',
 			fontSize: '1em !important',
 			fontFamily: 'Menlo, Monaco, monospace !important',
 		},
@@ -110,9 +112,10 @@ class CodeReader extends Component {
       style
     } = this.state;
 		const { classes, value, language } = this.props;
-		console.log('language', language);
 		// SyntaxHighlighter
     SyntaxHighlighter.registerLanguage('jsx', jsx);
+    SyntaxHighlighter.registerLanguage('css', css);
+    SyntaxHighlighter.registerLanguage('html', html);
     if (codePreview.enable) {
       return (
         <div>
@@ -142,7 +145,7 @@ class CodeReader extends Component {
               <LinearProgress color="secondary" className={classes.preloader} />
             )}
             <SyntaxHighlighter
-              language="jsx"
+              language={language}
               style={style === 'dark' ? darkStyle : lightStyle}
               showLineNumbers="true"
             >

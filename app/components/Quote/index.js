@@ -10,6 +10,8 @@ const styles = ({
     padding: '0 25',
     margin: 10,
     position: 'relative',
+    // 定义引号类型
+    quotes: '"“" "”" "“" "”"',
     '&:before': {
       color: blueGrey[100],
       fontSize: '4em',
@@ -37,17 +39,15 @@ const styles = ({
     }
   },
   quoteBody: {
-    minHeight: 100,
     marginBottom: 20
   }
 });
-
 
 class Quote extends React.Component {
   render() {
     const {
       align,
-      content,
+      children: content,
       footnote,
       classes
     } = this.props;
@@ -72,10 +72,15 @@ class Quote extends React.Component {
 }
 
 Quote.propTypes = {
-  align: PropTypes.string.isRequired,
-  content: PropTypes.string.isRequired,
-  footnote: PropTypes.string.isRequired,
+  align: PropTypes.string,
+  children: PropTypes.array.isRequired,
+  footnote: PropTypes.string,
   classes: PropTypes.object.isRequired,
+};
+
+Quote.defaultProps = {
+  align: 'left',
+  footnote: '',
 };
 
 export default withStyles(styles)(Quote);
