@@ -127,7 +127,7 @@
     "draftjs-to-markdown": "^0.5.1",
     "express": "4.16.4",
     "fontfaceobserver": "2.1.0",
-    "highlight.js": "^9.18.1",
+    "highlight.js": "^10.1.2",
     "history": "4.9.0",
     "hoist-non-react-statics": "3.3.0",
     "immer": "3.0.0",
